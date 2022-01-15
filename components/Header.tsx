@@ -23,6 +23,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Logo from './Logo';
 import { BsGithub } from 'react-icons/bs';
+import classNames from 'classnames';
 
 const solutions = [
   {
@@ -81,10 +82,6 @@ const blogPosts = [
       'https://images.unsplash.com/1/apple-gear-looking-pretty.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80',
   },
 ];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
 
 export default function Example() {
   return (
