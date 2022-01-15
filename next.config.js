@@ -13,10 +13,10 @@ if (process.env.ANALYZE === 'true') {
 }
 const configs = withPlugins(plugins, {
   // swcMinify: true,
-  experimental: {
-    // ssr and displayName are configured by default
-    styledComponents: !isProd,
-  },
+  // experimental: {
+  //   // ssr and displayName are configured by default
+  //   styledComponents: !isProd,
+  // },
   webpack: (config, options) => {
     config.plugins.push(new WindiCSSWebpackPlugin());
 
