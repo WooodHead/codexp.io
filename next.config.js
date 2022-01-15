@@ -12,7 +12,7 @@ if (process.env.ANALYZE === 'true') {
   plugins.push([require('@next/bundle-analyzer'), { enabled: true }]);
 }
 const configs = withPlugins(plugins, {
-  swcMinify: true,
+  // swcMinify: true,
   experimental: {
     // ssr and displayName are configured by default
     styledComponents: !isProd,
