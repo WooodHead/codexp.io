@@ -1,15 +1,15 @@
-const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin');
 
-const env = require('dotenv').config().parsed || {}
+const env = require('dotenv').config().parsed || {};
 
-const withPlugins = require('next-compose-plugins')
+const withPlugins = require('next-compose-plugins');
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production';
 
-const plugins = []
+const plugins = [];
 
 if (process.env.ANALYZE === 'true') {
-  plugins.push([require('@next/bundle-analyzer'), { enabled: true }])
+  plugins.push([require('@next/bundle-analyzer'), { enabled: true }]);
 }
 if (isProd) {
   plugins.push([
@@ -19,7 +19,7 @@ if (isProd) {
         dest: 'public',
       },
     },
-  ])
+  ]);
 }
 const configs = withPlugins(plugins, {
   swcMinify: true,
@@ -28,9 +28,9 @@ const configs = withPlugins(plugins, {
     styledComponents: !isProd,
   },
   webpack: (config, options) => {
-    config.plugins.push(new WindiCSSWebpackPlugin())
+    config.plugins.push(new WindiCSSWebpackPlugin());
 
-    return config
+    return config;
   },
   env: {
     PORT: 3333,
@@ -40,6 +40,6 @@ const configs = withPlugins(plugins, {
   eslint: {
     ignoreDuringBuilds: true,
   },
-})
+});
 
-module.exports = configs
+module.exports = configs;
