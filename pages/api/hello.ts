@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withSentry } from '@sentry/nextjs';
+// import { withSentry } from '@sentry/nextjs';
 
 type Data = {
   name: string
@@ -14,4 +14,5 @@ const handler = async (
 
 };
 
-export default withSentry(handler);
+export default handler;
+// export default withSentry(handler);
