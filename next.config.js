@@ -11,16 +11,6 @@ const plugins = [];
 if (process.env.ANALYZE === 'true') {
   plugins.push([require('@next/bundle-analyzer'), { enabled: true }]);
 }
-if (isProd) {
-  plugins.push([
-    require('next-pwa'),
-    {
-      pwa: {
-        dest: 'public',
-      },
-    },
-  ]);
-}
 const configs = withPlugins(plugins, {
   swcMinify: true,
   experimental: {
