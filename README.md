@@ -1,3 +1,7 @@
+# Deploy with serverless
+1. Config your serverless credentials
+2. `$ sls`
+
 # Reference projects
 
 ## next-auth
