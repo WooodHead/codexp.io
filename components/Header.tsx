@@ -22,6 +22,7 @@ import {
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Logo from './Logo';
+import { BsGithub } from 'react-icons/bs';
 
 const solutions = [
   {
@@ -207,6 +208,7 @@ export default function Example() {
                           )}
                         >
                           <span>More</span>
+
                           <ChevronDownIcon
                             className={classNames(
                               open ? 'text-gray-600' : 'text-gray-400',
@@ -319,6 +321,12 @@ export default function Example() {
                   </Popover>
                 </Popover.Group>
                 <div className="flex items-center md:ml-12">
+                  <a className={`p-1 fc block`} target="_blank" href="https://github.com/WooodHead/codexp.io">
+                    <BsGithub className={`link w-6 h-6`}></BsGithub>
+                  </a>
+                  <div className="text-gray-400 mx-8">
+                    |
+                  </div>
                   <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                     Sign in
                   </a>

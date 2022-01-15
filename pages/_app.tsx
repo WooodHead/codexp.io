@@ -1,4 +1,6 @@
 import 'windi.css';
+import './global.css';
+
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 

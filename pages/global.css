@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.jc{
+  justify-content: center;
+}
+.ac{
+  align-items: center;
+}
+.link{
+  cursor: pointer;
+}
+
+.fc{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
