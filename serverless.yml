@@ -1,0 +1,79 @@
+# serverless.yml
+
+codexpio:
+  component: "@sls-next/serverless-component@latest" # it is recommended you pin the latest stable version of serverless-next.js
+  inputs:
+    cloudfront:
+      # if you want to use an existing cloudfront distribution, provide it here
+      defaults:
+        forward:
+          cookies: "all"
+          queryString: true
+          headers:
+            [
+              CloudFront-Is-Desktop-Viewer,
+              CloudFront-Is-Mobile-Viewer,
+              CloudFront-Is-Tablet-Viewer,
+            ]
+      # this is the cache behaviour for next.js api pages
+      api:
+        minTTL: 0
+        maxTTL: 0
+        defaultTTL: 0
+      # you can set other cache behaviours like "defaults" above that can handle server side rendering
+      # but more specific for a subset of your next.js pages
+      /api/*:
+        minTTL: 0
+        maxTTL: 0
+        defaultTTL: 0
+        forward:
+          cookies: "all"
+          queryString: true
+      # /about:
+      #   minTTL: 3000
+      #   maxTTL: 3000
+      #   defaultTTL: 3000
+      # # you can add custom origins to the cloudfront distribution
+      # origins:
+      #   - url: /static
+      #     pathPatterns:
+      #       /wp-content/*:
+      #         minTTL: 10
+      #         maxTTL: 10
+      #         defaultTTL: 10
+      #   - url: https://old-static.com
+      #     pathPatterns:
+      #       /old-static/*:
+      #         minTTL: 10
+      #         maxTTL: 10
+      #         defaultTTL: 10
+      #   - url: http://old-api.com
+      #     protocolPolicy: http-only
+      #     pathPatterns:
+      #       /old-api/*:
+      #         minTTL: 10
+      #         maxTTL: 10
+      #         defaultTTL: 10
+      # aliases: ["foo.example.com", "bar.example.com"]
+      # priceClass: "PriceClass_100"
+      # # You can add custom error responses
+      # errorPages:
+      #   - code: 503
+      #     path: "/503.html"
+      #     minTTL: 5 # optional, minimum ttl the error is cached (default 10)
+      #     responseCode: 500 # optional, alters the response code
+      # comment: "a comment" # optional, describes your distribution
+      # webACLId: "arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a" # ARN of WAF
+      # restrictions:
+      #   geoRestriction:
+      #     restrictionType: "blacklist" # valid values are whitelist/blacklist/none. Set to "none" and omit items to disable restrictions
+      #     items: ["AA"] # ISO 3166 alpha-2 country codes
+      # certificate:
+      #   cloudFrontDefaultCertificate: false # specify false and one of IAM/ACM certificates, or specify true and omit IAM/ACM inputs for default certificate
+      #   acmCertificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+      #   iamCertificateId: "iam-certificate-id" # specify either ACM or IAM certificate, not both
+      #   sslSupportMethod: "sni-only" # can be omitted, defaults to "sni-only"
+      #   minimumProtocolVersion: "TLSv1.2_2019" # can be omitted, defaults to "TLSv1.2_2019"
+      # originAccessIdentityId: XYZEXAMPLE #optional
+      # paths: ["/*"] # which paths should be invalidated on deploy, default matches everything, empty array skips invalidation completely
+      # waitBeforeInvalidate: true # by default true, it waits for the CloudFront distribution to have completed before invalidating, to avoid possibly caching old page
