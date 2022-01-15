@@ -1,10 +1,6 @@
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin');
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-});
-
-module.exports = withMDX({
+module.exports = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   eslint: {
     ignoreDuringBuilds: true,
@@ -17,4 +13,4 @@ module.exports = withMDX({
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname
   },
-});
+};
