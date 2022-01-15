@@ -5,6 +5,7 @@ codexpio:
   inputs:
     cloudfront:
       # if you want to use an existing cloudfront distribution, provide it here
+      distributionId: E246LST0BLKCXX #optional
       defaults:
         forward:
           cookies: "all"
