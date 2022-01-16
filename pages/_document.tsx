@@ -1,6 +1,19 @@
 // @ts-nocheck
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
+
+Sentry.init({
+  dsn: 'https://5b565ccc507f4a0d8d213f24c951cbbc@o144425.ingest.sentry.io/6150867',
+  integrations: [new Integrations.BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
+
 
 class MyDocument extends Document {
   render() {
